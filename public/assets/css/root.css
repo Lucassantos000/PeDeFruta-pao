@@ -1,0 +1,98 @@
+
+/* root */
+:root{
+    --color-primary: #009688; /* Verde-Água */
+    --color-secondary: #FAF3E0; /* Beige Claro */
+    --color-accent: #FF6F61; /* Coral */
+    --color-text-primary: #424242; /* Cinza Escuro */
+    --color-text-secondary: #E0E0E0; /* Cinza Claro */
+    --color-red-lightest: #FFEBEE; /* Vermelho muito claro */
+    --color-red-light: #FFCDD2; /* Vermelho claro */
+    --color-red: #EF5350; /* Vermelho padrão */
+    --color-red-dark: #C62828; /* Vermelho escuro */
+    --color-red-darker: #B71C1C; /* Vermelho mais escuro */
+    --color-tertiary: #ecf0f1;
+    --color-quaternary: #34495e;
+    --color-quinary: #95a5a6;
+    --color-white: #fff;
+    --color-black: #000;
+    --color-gray: #7f8c8d;
+    --color-light: #f5f5f5;
+    --color-dark: #2c3e50;
+    --color-danger: #e74c3c;
+    --color-success: #2ecc71;
+    --color-warning: #f39c12;
+    --color-info: #3498db;
+    --color-lighter: #f7f7f7;
+    --color-darker: #333;
+    --color-link: #3498db;
+    --color-link-hover: #2980b9;
+    --color-link-visited: #9b59b6;
+    --color-link-active: #e74c3c;
+    --color-link-focus: #e74c3c;
+    --color-link-disabled: #bdc3c7;
+    --color-link-text: #fff;
+    --color-link-text-hover: #fff;
+    --color-link-text-visited: #fff;
+    --color-link-text-active: #fff;
+    --color-link-text-focus: #fff;
+    --color-link-text-disabled: #fff;
+    --color-link-background: #3498db;
+    --color-link-background-hover: #2980b9;
+    --color-link-background-visited: #9b59b6;
+    --color-link-background-active: #e74c3c;
+    --color-link-background-focus: #e74c3c;
+    --color-link-background-disabled: #bdc3c7;
+    --color-link-border: #3498db;
+    --color-link-border-hover: #2980b9;
+    --color-link-border-visited: #9b59b6;
+    --color-link-border-active: #e74c3c;
+    --color-link-border-focus: #e74c3c;
+    --color-link-border-disabled: #bdc3c7;
+    --color-link-shadow: #3498db;
+    --color-link-shadow-hover: #2980b9;
+    --header_height: 80px;
+    --max-width-container: 1100px;
+}
+
+
+/* importar poppins de fuente de googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+body {
+    background-color: var(--color-secondary);
+    color: var(--color-text-primary);
+  }
+
+.max-container{
+    max-width: var(--max-width-container);
+    
+}
+  
+  .button {
+    background-color: var(--color-red);
+    color: var(--color-secondary);
+  }
+  
+  .button:hover {
+    background-color: var(--color-red-dark);
+  }
+  
+  .alert {
+    background-color: var(--color-red-light);
+    color: var(--color-red-dark);
+  }
+  
+  .alert-error {
+    background-color: var(--color-red-darker);
+    color: var(--color-secondary);
+  }
