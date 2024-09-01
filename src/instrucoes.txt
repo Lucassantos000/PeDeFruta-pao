@@ -1,0 +1,15 @@
+--- caso o arquivo composer.json já esteja na pasta
+
+1º Instalar as dependencias do projeto
+-> composer install
+
+
+2º Baixar a lib para ler variáveis de ambiente
+-> composer require vlucas/phpdotenv
+
+
+########################################
+# Lucas dos Santos Marques               #
+# 31/08/2024                             # 
+# (92) 9 86017244                        #
+########################################

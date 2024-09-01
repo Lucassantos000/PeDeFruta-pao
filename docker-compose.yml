@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./infra/php/
+      dockerfile: Dockerfile
+    container_name: php
+    ports:
+      - "8090:80"
+    volumes:
+      - ./src:/var/www/src
+      - ./public:/var/www/html
+    depends_on:
+      - mysql
+    networks:
+      - pe-de-frutao-pao
+    #rodar script para enviar o env para o container
+    #command: bash -c "cp .env .env "
+    #validar a saude 
+    #healthcheck:
+    #  test: ["CMD", "curl", "-f", "http://localhost"]
+    #  interval: 1m
+    #  timeout: 10s
+    #  retries: 3
+
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      TZ: ${FUSO}
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - pe-de-frutao-pao
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      UPLOAD_LIMIT:  ${DEFINE_UPLOAD_LIMIT}
+      PMA_UPLOAD_LIMIT: ${DEFINE_UPLOAD_LIMIT}
+      PMA_ARBITRARY: 1
+      TZ: ${FUSO}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "8183:80"
+    networks:
+      - pe-de-frutao-pao
+    depends_on:
+      - mysql
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8091:80" # Redirecionar para a pasta files
+    volumes:
+      - ./files:/var/www/files # Mapeamento da pasta files
+      - ./infra/nginx/errors:/var/www/errors # Mapeamento da pasta errors
+      - ./infra/nginx/nginx.conf:/etc/nginx/nginx.conf # Opcional: seu arquivo de configuração Nginx personalizado
+    networks:
+      - pe-de-frutao-pao
+    depends_on:
+      - app
+
+networks:
+  pe-de-frutao-pao:
+    driver: bridge
+
+
+
+

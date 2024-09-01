@@ -1,0 +1,6 @@
+/src/vendor
+/mysql
+.env
+composer.lock
+/files
+/wiki
