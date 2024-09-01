@@ -11,6 +11,7 @@ services:
     volumes:
       - ./src:/var/www/src
       - ./public:/var/www/html
+      - ./files:/var/www/files
     depends_on:
       - mysql
     networks:
@@ -64,7 +65,7 @@ services:
     ports:
       - "8091:80" # Redirecionar para a pasta files
     volumes:
-      - ./files:/var/www/files # Mapeamento da pasta files
+      - ./files:/var/www/files # Mape amento da pasta files
       - ./infra/nginx/errors:/var/www/errors # Mapeamento da pasta errors
       - ./infra/nginx/nginx.conf:/etc/nginx/nginx.conf # Opcional: seu arquivo de configuração Nginx personalizado
     networks:
