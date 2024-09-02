@@ -7,6 +7,9 @@
 2º Baixar a lib para ler variáveis de ambiente
 -> composer require vlucas/phpdotenv
 
+3º Baixar a lib para validar se o arquivo enviado é pdf
+composer require smalot/pdfparser
+
 
 ########################################
 # Lucas dos Santos Marques               #
