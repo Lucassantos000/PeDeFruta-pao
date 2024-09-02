@@ -101,7 +101,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //enviar arquivos para o servidor
-    
+    async function sendFilesToServer(){
+        const formData = new FormData();
+        files.forEach(file => {
+            formData.append('files[]', file);
+        });
+
+        const response = await fetch('/upload', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            alert('Files uploaded successfully');
+            files = [];
+            updateFileList();
+        } else {
+            alert('Failed to upload files');
+        }
+    }
+        
 
 
 
